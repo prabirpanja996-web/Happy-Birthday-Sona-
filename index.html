@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>সুভালির জন্য বিশেষ মুহূর্ত</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+            font-family: 'Segoe UI', 'Poppins', 'Roboto', system-ui, -apple-system, 'Bangla', sans-serif;
+            padding: 20px 16px 60px 16px;
+            color: #f0f3fa;
+            scroll-behavior: smooth;
+        }
+
+        /* মোবাইল ফ্রেন্ডলি কন্টেইনার */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(10, 20, 30, 0.55);
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 20px 18px 40px 18px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
+        }
+
+        /* মূল হেডার + অ্যানিমেশন */
+        .birthday-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .happy-birthday {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD166, #FF8C42, #FF3A6F);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 12px rgba(255,140,66,0.4);
+            letter-spacing: 2px;
+            animation: glowPulse 1.8s infinite alternate;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 2px #ff8c42, 0 0 6px #ff3a6f; opacity: 0.9;}
+            100% { text-shadow: 0 0 18px #ffd166, 0 0 28px #ff3a6f; opacity: 1;}
+        }
+
+        .suvali-name {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(120deg, #F9F3C1, #FFB347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        /* অপশন বাটন বা ক্যাপশন স্টাইল (ইংরেজিতে লেখা) */
+        .options-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0 20px;
+        }
+
+        .opt-btn {
+            background: rgba(20, 30, 55, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #c0f2ff;
+            cursor: pointer;
+            transition: 0.25s ease;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+            font-family: monospace;
+        }
+
+        .opt-btn:hover {
+            background: #2a3b6e;
+            border-color: cyan;
+            color: white;
+            transform: scale(1.02);
+            box-shadow: 0 0 12px cyan;
+        }
+
+        /* গল্পের অংশ (বাংলা লেখা) */
+        .story-card {
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 24px 20px;
+            margin: 25px 0;
+            border-left: 5px solid #ffaa44;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+        }
+
+        .story-text {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            text-align: justify;
+            word-break: break-word;
+            color: #f5f0e0;
+        }
+
+        .eng-caption {
+            font-family: 'Courier New', monospace;
+            background: rgba(255,215,0,0.15);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            border: 1px dashed #ffb347;
+        }
+
+        /* ফটো গ্যালারি */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 0 2px rgba(0,255,255,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            background: #111;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 28px cyan;
+        }
+
+        /* birthday সেকশন */
+        .birthday-message {
+            background: linear-gradient(135deg, #1f1c2c, #1e2a3a);
+            border-radius: 48px;
+            padding: 28px 20px;
+            margin: 35px 0;
+            text-align: center;
+            border: 1px solid rgba(255,180,80,0.5);
+        }
+
+        .wish-text {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #FFB347;
+            font-weight: bold;
+        }
+
+        .poem-area {
+            background: rgba(0,0,0,0.5);
+            border-radius: 32px;
+            padding: 16px;
+            font-style: italic;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1rem;
+            border-top: 2px solid #ff9966;
+        }
+
+        /* ফুটার ছড়া ও অ্যানিমেশন */
+        .rhyme-box {
+            text-align: center;
+            background: #0e1622cc;
+            border-radius: 40px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 1.05rem;
+        }
+
+        @keyframes floatConfetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1;}
+            100% { transform: translateY(-300px) rotate(360deg); opacity: 0;}
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ffd966;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 999;
+            animation: floatConfetti 2.5s ease-out forwards;
+        }
+
+        button {
+            background: none;
+            border: none;
+        }
+
+        /* মোবাইল ফ্রেন্ডলি ফন্ট */
+        @media (max-width: 550px) {
+            body { padding: 12px; }
+            .happy-birthday { font-size: 2.2rem; }
+            .suvali-name { font-size: 1.8rem; }
+            .opt-btn { padding: 8px 18px; font-size: 0.9rem;}
+            .story-text { font-size: 0.98rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- হ্যাপি বার্থডে হেডার + সঠিক নাম Suvali -->
+    <div class="birthday-header">
+        <div class="happy-birthday">🎂 HAPPY BIRTHDAY 🎂</div>
+        <span class="suvali-name">✨ Suvali ✨</span>
+        <div style="font-size:0.9rem; margin-top: 8px;">❤️ 🌸 Always Shine 🌸 ❤️</div>
+    </div>
+
+    <!-- তিনটি অপশন বাটন (ইংরেজিতে লেবেল) -->
+    <div class="options-panel">
+        <div class="opt-btn" id="firstSightBtn">✨ First Sight ✨</div>
+        <div class="opt-btn" id="gradualTalkBtn">🗣️ Gradual Conversation 🗣️</div>
+        <div class="opt-btn" id="photoCollectionBtn">📸 Photo Collection 📸</div>
+    </div>
+
+    <!-- ডাইনামিক কন্টেন্ট এরিয়া যেখানে প্রথম দেখা, ধীরে কথা বলা, ফটো গ্যালারি শো হবে -->
+    <div id="dynamicContentArea">
+        <!-- ডিফল্টভাবে প্রথম গল্পটা দেখাবে (বাংলা গল্পের প্রথম অংশ) -->
+        <div class="story-card" id="defaultStory">
+            <div class="eng-caption">✨ First Sight (প্রথম দেখা) ✨</div>
+            <div class="story-text">
+                সোদপুর হাই স্কুল ক্লাস ফাইভ সেকশন c তুমিও ছিলে অজানা আমিও ছিলাম অজানা , কিন্তু এই অজানায় কি করে যে ভালোবাসায় পরিণত হয়ে গেল 😊<br><br>
+                তুমি হয়তো প্রথম আমাকে চেয়েছিলে , আমি হয়তো তখন তোমাকে তেমন কোন বুঝতেই পারিনি। তবে অবশ্য আমার মধ্যে কিছুটা ফিলিংস ছিল তোমার প্রতি , তারপর চিঠি দেয়া আরো কত কি মজা হয়েছে দেখতে দেখতে কত বড় হয়ে গেলাম , কত সুন্দর তাই না সেই একসাথে দেখা, কথা হয়তো বলতে পারতাম না কিন্তু কারণ আমাকে খুব লজ্জা পায় ওই জন্যই হয়তো হোয়াটসঅ্যাপে এসএমএস ।<br><br>
+                এই ভাবেই কতগুলো কেটে গেল কত কি ঘটলো তবু আমাদের বন্ধুত্ব ভালোবাসা কমলনা ।
+            </div>
+        </div>
+    </div>
+
+    <!-- গল্পের দ্বিতীয় ধাপ: আস্তে আস্তে কথা বলা শুরু (ইংরেজি অংশ) - স্থায়ীভাবে রাখছি, কিন্তু পরে ডায়নামিকেও লোড হবে  -->
+    <div class="story-card" id="gradualCard" style="display: none;">
+        <div class="eng-caption">🗣️ Gradual Conversation (আস্তে আস্তে কথা বলা শুরু) 🗣️</div>
+        <div class="story-text">
+            তারপর একটু লজ্জা দিকে এই দিকে এসে আস্তে আস্তে কথা বলা শুরু হলো তুমিও কথা বলতে শুরু করলে এইভাবেই বিশ্বাস তৈরি হতে লাগলো একে অপরের কাছে তারপর সব কথা শেয়ার শুরু হলো। একই গ্রামের বাড়ি নদীর এই পারে তোমার নদী ওই পারে কি ভালো তাই না? মাঝে মাঝে দেখা হবে কথা হবে এই রকমই ভালো ।
+        </div>
+    </div>
+
+    <!-- ফটো গ্যালারি এলাকা (প্রাথমিকভাবে hidden) -->
+    <div id="photoGalleryBlock" style="display: none;">
+        <div class="story-card" style="background: #000000aa;">
+            <div class="eng-caption">📸 Photo Collection (ফটো কালেকশন) 📸</div>
+            <div class="gallery">
+                <img src="https://cdn.imgchest.com/files/c5e25ff48a5a.jpg" alt="memory 1" loading="lazy">
+                <img src="https://cdn.imgchest.com/files/663faa20761b.jpg" alt="memory 2" loading="lazy">
+                <img src="https://cdn.imgchest.com/files/be9cc08235c0.jpg" alt="memory 3" loading="lazy">
+                <img src="https://cdn.imgchest.com/files/2b0c739dd644.jpeg" alt="memory 4" loading="lazy">
+            </div>
+            <div class="story-text" style="text-align:center; margin-top:10px;">🌸 precious moments captured forever 🌸</div>
+        </div>
+    </div>
+
+    <!-- 4 . Happy Birthday Suvali সম্পূর্ণ অংশ + বার্থডে অ্যানিমেশন ও ছড়া -->
+    <div class="birthday-message" id="birthdaySpecial">
+        <div style="font-size: 2rem;">🎂 🎉</div>
+        <div class="wish-text">
+            🌟 আজকের দিনটা মজা আনন্দ সকলের সাথে বাড়ি সবার সাথে খুব ভালো করে কাটালি। আজকে কোন খারাপ মন করে থাকার দিন নয়। ইনজয় করবি এই দিনটা 🌟<br><br>
+            <span class="highlight">Happy birthday Sona ❤️ 😊</span><br>
+            Always be there, take care of yourself and move forward like this.There are many obstacles and dangers in life. Overcoming them is the job of a great person. Always take care of everyone, take care of yourself, remember this day and have lots of joy.<br><br>
+            🌸❤️
+        </div>
+        <!-- ছড়া অংশ (একটা ছড়া যোগ করলাম) -->
+        <div class="poem-area">
+            ✨ একটি ছড়া তোমার জন্য ✨<br>
+            “হাসির ফুল ফুটুক সদা, আলো ছড়াক তুমি বদা,<br>
+            স্বপ্নের ডানা মেলো উড়ে, বন্ধু সুভালি তুমি জাদু ঘুড়ে।<br>
+            জন্মদিনে এ শুভেচ্ছা নিও, প্রতিটি মুহূর্ত আপন করো জেনো।”<br>
+            💖 শুভ জন্মদিন 💖
+        </div>
+    </div>
+
+    <!-- কনফেটি বার্থডে অ্যানিমেশনের জন্য বাটন (এক্সট্রা) -->
+    <div style="display: flex; justify-content: center; margin: 15px 0 10px;">
+        <div class="opt-btn" id="celebrateBtn" style="background:#ff4d6d; color:white; border-color: gold;">🎈 Celebrate with Confetti 🎈</div>
+    </div>
+    <div style="text-align: center; font-size: 0.8rem; opacity: 0.8;">❤️ click & feel the birthday magic ❤️</div>
+
+</div>
+
+<script>
+    // ধাপ 1: অপশন গুলো হ্যান্ডেল করা - (First Sight / Gradual Conversation / Photo Collection)
+    const defaultStoryDiv = document.getElementById('defaultStory');
+    const gradualCardDiv = document.getElementById('gradualCard');
+    const photoGalleryDiv = document.getElementById('photoGalleryBlock');
+    
+    // ফাংশন সব রিসেট করে শুধু নির্দিষ্ট এলাকা দেখাবে
+    function resetAndShow(showDefault, showGradual, showPhoto) {
+        if(showDefault) {
+            defaultStoryDiv.style.display = 'block';
+        } else {
+            defaultStoryDiv.style.display = 'none';
+        }
+        
+        if(showGradual) {
+            gradualCardDiv.style.display = 'block';
+        } else {
+            gradualCardDiv.style.display = 'none';
+        }
+        
+        if(showPhoto) {
+            photoGalleryDiv.style.display = 'block';
+        } else {
+            photoGalleryDiv.style.display = 'none';
+        }
+    }
+    
+    // "First Sight" এর জন্য : প্রথম অংশ (বাংলা গল্পের প্রথম অংশ) দেখাবে
+    document.getElementById('firstSightBtn').addEventListener('click', () => {
+        resetAndShow(true, false, false);
+        // smooth scroll করে দেখানোর সুবিধা
+        document.getElementById('dynamicContentArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    
+    // "Gradual Conversation" এর জন্য: আস্তে আস্তে কথা বলা শুরু (ইংরেজি ক্যাপশন সহ বাংলা টেক্সট)
+    document.getElementById('gradualTalkBtn').addEventListener('click', () => {
+        resetAndShow(false, true, false);
+        document.getElementById('dynamicContentArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    
+    // "Photo Collection" এর জন্য: ফটো গ্যালারি দেখাবে (ছবি কালেকশন)
+    document.getElementById('photoCollectionBtn').addEventListener('click', () => {
+        resetAndShow(false, false, true);
+        document.getElementById('photoGalleryBlock').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    
+    // বার্থডে অ্যানিমেশন: কনফেটি ইফেক্ট (প্রফেশনাল কালারফুল)
+    function createConfetti() {
+        const colors = ['#FF595E', '#FFCA3A', '#8AC926', '#1982C4', '#6A4E9B', '#FF70A6', '#FFD166', '#05C7F2'];
+        for (let i = 0; i < 130; i++) {
+            const conf = document.createElement('div');
+            conf.classList.add('confetti');
+            const size = Math.floor(Math.random() * 12) + 5;
+            conf.style.width = size + 'px';
+            conf.style.height = size + 'px';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.position = 'fixed';
+            conf.style.left = Math.random() * window.innerWidth + 'px';
+            conf.style.top = '-20px';
+            conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '0%';
+            conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+            conf.style.animationDuration = Math.random() * 2 + 1.5 + 's';
+            conf.style.animationDelay = Math.random() * 0.5 + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => { conf.remove(); }, 2800);
+        }
+    }
+    
+    document.getElementById('celebrateBtn').addEventListener('click', () => {
+        createConfetti();
+        // একটি ছোট অডিও নেই, কিন্তু ভিজ্যুয়াল উল্লাস
+        // এছাড়াও জন্মদিনের সেকশনে স্ক্রল ইফেক্ট
+        const bdayElem = document.getElementById('birthdaySpecial');
+        bdayElem.style.transform = 'scale(1.02)';
+        setTimeout(() => { bdayElem.style.transform = 'scale(1)'; }, 400);
+        // উপরে জন্মদিনের শুভেচ্ছা অ্যানিমেশন
+        const titleGlow = document.querySelector('.happy-birthday');
+        titleGlow.style.animation = 'none';
+        setTimeout(() => { titleGlow.style.animation = 'glowPulse 1.8s infinite alternate'; }, 20);
+    });
+    
+    // ডিফল্ট অবস্থা ঠিক রাখা: প্রথমটা দেখাবে defaultStory (First Sight) এবং gradualCard ও photo গ্যালারি লুকানো থাকবে। 
+    // কিন্তু gradualCard ও photoGalleryDiv কে প্রাথমিকভাবে hide করতে হবে।
+    resetAndShow(true, false, false);
+    
+    // অতিরিক্ত: যদি মোবাইলে টেক্সট ওভারফ্লো ঠিক করা
+    // ছড়া দ্বিতীয় অংশ: ইতিমধ্যে poem-area আছে। প্রয়োজনীয় সব ভাল।
+    // প্রফেশনাল কালার গ্রেডিংয়ের জন্য ব্যাকগ্রাউন্ড, গ্রেডিয়েন্ট ইতিমধ্যে রেখেছি।
+    
+    // এছাড়া হ্যাপি বার্থডের নিচে একটি স্বতন্ত্র ছড়াও কবিতা আকারে রাখলাম।  (ইতিমধ্যেই আছে)
+    // "বাদবাকি তুমি একটা একটা ছড়া দিয়ে দিবে" - ছড়া যোগ করে দিয়েছি poem-area তে 
+    // এবং BirthDay অনিমেশন - Celebrate বাটন + confetti.
+    // সকল অপশনের ক্যাপশন (বাটনের লেখা) ইংরেজিতে: First Sight, Gradual Conversation, Photo Collection, Celebrate with Confetti
+    // বাংলা গল্পগুলো শুধু বাংলাতেই রেখেছি ঠিকমত।
+    // নামের বানান Suvali (সঠিক)
+    
+    // মোবাইল ফ্রেন্ডলি: viewport মেটা + কন্টেইনার ম্যাক্স-উইডথ + ছবি responsive
+    // গ্যালারির ছবি গুলো সঠিক লিংক দেয়া আছে।
+    // third part ফটো কালেকশন এডিট ঠিক আছে।
+    
+    // স্মুথ স্ক্রোলিং আরো নিশ্চিত করতে click handler এ scrollIntoView.
+    // আরও আনুষাঙ্গিক: ধন্যবাদ ও শুভেচ্ছা
+    
+    // বাড়তি একটি অপশন: গ্রেডিয়েন্ট টেক্সট - প্রফেশনাল কালার গ্রেডিং
+    // কেউ ক্লিক করলে ব্যাকগ্রাউন্ড ব্রাইটনেস ওভারলে নয়।
+    
+    // সব ঠিক আছে।
+    
+    // ছোট টুইক: "Gradual Conversation" ইংরেজিতে ক্যাপশন ওপরে দেখাবে, সাথে বাংলা টেক্সট। ইতিমধ্যে ঠিক আছে।
+    // ফটো কালেকশন এর ভেতরও ইংরেজি caption।
+    console.log("পেজ লোড হয়েছে। শুভ জন্মদিন Suvali ❤️");
+    
+    // উইন্ডো রিসাইজে কনফেটি সেফ
+    // এছাড়াও, birthday message সেকশন ভালোভাবে কাস্টমাইজড
+    // অতিরিক্ত একটি ছড়া: দ্বিতীয় ছড়া আরো যোগ করি কি? "বাদবাকি তুমি একটা একটা ছড়া দিয়ে দিবে" - আরো একটি ছড়া অ্যাড করি birthday section এর নিচে?
+    const extraRhyme = document.createElement('div');
+    extraRhyme.className = 'rhyme-box';
+    extraRhyme.innerHTML = '🎵 আরেকটি ছড়া 🎵<br>“সুভালি নামটি যেন জুঁই ফুলের মালা,<br>তোমার হাসিতে ভরে ওঠে প্রাণের আঁধার আলা।<br>জন্মদিনের উচ্ছ্বাসে ভাসুক দুনিয়া,<br>থেকো ভালো, থেকো মধুর, এই হোক শুভ কামনা।”<br>💐 তোমার বন্ধু 💐';
+    document.getElementById('birthdaySpecial').appendChild(extraRhyme);
+    
+    // সব ঠিক আছে। নিশ্চিত করা যে নামের বানান Suvali সর্বত্র।
+    // ইতিমধ্যে .suvali-name এ Suvali.
+    // কিছু লিংক ইমেজ রিলায়েবল, যদি লোড না হয় তাও গ্যালারি দেখাবে।
+</script>
+</body>
+</html>
